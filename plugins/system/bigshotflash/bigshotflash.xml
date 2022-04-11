@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>System - BIGSHOT Flash</name>
+	<author>thinkbigshot.com</author>
+	<creationDate>January 2012</creationDate>
+	<copyright>Copyright (C) 2012 BIGSHOT. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>jeffh@thinkbigshot.com</authorEmail>
+	<authorUrl>thinkbigshot.com</authorUrl>
+	<version>1.5</version>
+	<description>PLG_BIGSHOT_FLASH_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="bigshotflash">bigshotflash.php</filename>
+		<folder>language</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_bigshotflash.sys.ini</language> 
+		<language tag="en-GB">en-GB/en-GB.plg_system_bigshotflash.ini</language> 
+	</languages>
+	<params>
+		<param name="width" type="text" default="300" label="Width" description="Default width of the SWF content in pixels." />
+		<param name="height" type="text" default="200" label="Height" description="Default height of the SWF content in pixels." />
+		<param name="quality" type="list" default="high" label="Quality" description="Specifies default rendering quality. Available options:&lt;br /&gt;&lt;br /&gt;low - favors playback speed over appearance and never uses anti-aliasing&lt;br /&gt;&lt;br /&gt;medium - applies some anti-aliasing and does not smooth bitmaps&lt;br /&gt;&lt;br /&gt;high - favors appearance over playback speed and always applies anti-aliasing">
+			<option value="low">Low</option>
+			<option value="medium">Medium</option>
+			<option value="high">High</option>
+		</param>
+		<param name="scale" type="list" default="default" label="Scale" description="Specifies how Flash Player scales SWF content to fit the pixel area by default. Available options:&lt;br /&gt;&lt;br /&gt;default -  makes the entire SWF file visible in the specified area without distortion, while maintaining the original aspect ratio&lt;br /&gt;&lt;br /&gt;exactfit - makes the entire SWF file visible in the specified area without preserving the original aspect ratio&lt;br /&gt;&lt;br /&gt;noborder - scales the SWF file to fill the specified area; content can be cropped, but no distortion occurs&lt;br /&gt;&lt;br /&gt;noscale - prevents the SWF file from scaling to fit the area, cropping can occur">
+			<option value="default">Default</option>
+			<option value="exactfit">Exact Fit</option>
+			<option value="noborder">No Border</option>
+			<option value="noscale">No Scale</option>
+			<option value="window">Window</option>
+		</param>
+		<param name="wmode" type="list" default="transparent" label="Window Mode" description="Default window mode for layering and rendering. Available options:&lt;br /&gt;&lt;br /&gt;window - the SWF content plays in its own rectangle on a web page&lt;br /&gt;&lt;br /&gt;direct - recommended for the best performance for content playback&lt;br /&gt;&lt;br /&gt;opaque - the SWF file is opaque and hides everything layered behind it&lt;br /&gt;&lt;br /&gt;transparent - elements beneath the SWF are blended through transparent areas&lt;br /&gt;&lt;br /&gt;gpu - hardware acceleration; pixel fidelity for display list graphics is not guaranteed">
+			<option value="direct">Direct</option>
+			<option value="gpu">GPU</option>
+			<option value="opaque">Opaque</option>
+			<option value="transparent">Transparent</option>
+			<option value="window">Window</option>
+		</param>
+		<param name="bgcolor" type="text" default="#FFFFFF" label="Background Color" description="Default background color of the SWF content in the format #RRGGBB." />
+		<param name="base" type="text" default="" label="Base" description="Specifies the base directory or URL used to resolve all relative path statements in the SWF file." />
+		<param name="id" type="text" default="" label="SWF ID" description="Default object tag id for your SWF files." />
+		<param name="play" type="list" default="true" label="Auto Play" description="Specifies whether a timeline-based SWF file begins playing immediately on loading in the browser.">
+			<option value="true">Yes</option>
+			<option value="false">No</option>
+		</param>
+		<param name="loop" type="list" default="true" label="Loop" description="Specifies whether a timeline-based SWF file repeats indefinitely or stops when it reaches the last frame.">
+			<option value="true">Yes</option>
+			<option value="false">No</option>
+		</param>
+		<param name="allowFullScreen" type="list" default="true" label="Allow Full Screen" description="Specifies whether to allow the SWF file to enter full screen mode via ActionScript.">
+			<option value="true">Yes</option>
+			<option value="false">No</option>
+		</param>
+		<param name="menu" type="list" default="true" label="Menu" description="Specifies if movie playback controls are available in the Flash Player context menu.">
+			<option value="true">Yes</option>
+			<option value="false">No</option>
+		</param>
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="width" type="text" default="300" label="Width" description="Default width of the SWF content in pixels." />
+				<field name="height" type="text" default="200" label="Height" description="Default height of the SWF content in pixels." />
+				<field name="quality" type="list" default="high" label="Quality" description="Specifies default rendering quality. Available options:&lt;br /&gt;&lt;br /&gt;low - favors playback speed over appearance and never uses anti-aliasing&lt;br /&gt;&lt;br /&gt;medium - applies some anti-aliasing and does not smooth bitmaps&lt;br /&gt;&lt;br /&gt;high - favors appearance over playback speed and always applies anti-aliasing">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</field>
+				<field name="scale" type="list" default="default" label="Scale" description="Specifies how Flash Player scales SWF content to fit the pixel area by default. Available options:&lt;br /&gt;&lt;br /&gt;default -  makes the entire SWF file visible in the specified area without distortion, while maintaining the original aspect ratio&lt;br /&gt;&lt;br /&gt;exactfit - makes the entire SWF file visible in the specified area without preserving the original aspect ratio&lt;br /&gt;&lt;br /&gt;noborder - scales the SWF file to fill the specified area; content can be cropped, but no distortion occurs&lt;br /&gt;&lt;br /&gt;noscale - prevents the SWF file from scaling to fit the area, cropping can occur">
+					<option value="default">Default</option>
+					<option value="exactfit">Exact Fit</option>
+					<option value="noborder">No Border</option>
+					<option value="noscale">No Scale</option>
+					<option value="window">Window</option>
+				</field>
+				<field name="wmode" type="list" default="transparent" label="Window Mode" description="Default window mode for layering and rendering. Available options:&lt;br /&gt;&lt;br /&gt;window - the SWF content plays in its own rectangle on a web page&lt;br /&gt;&lt;br /&gt;direct - recommended for the best performance for content playback&lt;br /&gt;&lt;br /&gt;opaque - the SWF file is opaque and hides everything layered behind it&lt;br /&gt;&lt;br /&gt;transparent - elements beneath the SWF are blended through transparent areas&lt;br /&gt;&lt;br /&gt;gpu - hardware acceleration; pixel fidelity for display list graphics is not guaranteed">
+					<option value="direct">Direct</option>
+					<option value="gpu">GPU</option>
+					<option value="opaque">Opaque</option>
+					<option value="transparent">Transparent</option>
+					<option value="window">Window</option>
+				</field>
+				<field name="bgcolor" type="text" default="#FFFFFF" label="Background Color" description="Default background color of the SWF content in the format #RRGGBB." />
+				<field name="base" type="text" default="" label="Base" description="Specifies the base directory or URL used to resolve all relative path statements in the SWF file." />
+				<field name="id" type="text" default="" label="SWF ID" description="Default object tag id for your SWF files." />
+				<field name="play" type="list" default="true" label="Auto Play" description="Specifies whether a timeline-based SWF file begins playing immediately on loading in the browser.">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="loop" type="list" default="true" label="Loop" description="Specifies whether a timeline-based SWF file repeats indefinitely or stops when it reaches the last frame.">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="allowFullScreen" type="list" default="true" label="Allow Full Screen" description="Specifies whether to allow the SWF file to enter full screen mode via ActionScript.">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="menu" type="list" default="true" label="Menu" description="Specifies if movie playback controls are available in the Flash Player context menu.">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+			</fieldset>
+		</fields>
+  </config>
+</install>

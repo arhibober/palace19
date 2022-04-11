@@ -1,0 +1,24 @@
+** IMAGES
+
+Special thanks goes to flickr user and owner of the slideshow images: http://www.flickr.com/photos/al-fassam/
+
+PLEASE CHECK OUT HIS PROFILE and see the license of these images.
+
+The user gave us permission to use the images in the slideshow as preview. You must add your own images after installing the template.
+
+We do not take credit for any images, icons, effects used in this template. The images, icons are for preview only and will not be sold.
+
+========================
+** TEMPLATE
+
+
+You are allowed to:
+- Use the template on any website (commercial sites also allowed)
+- Share it on the internet
+
+You are not allowed to:
+- Remove the copyright
+- Don't claim slideshow images as your own.
+
+You can modify the css file if you want.
+

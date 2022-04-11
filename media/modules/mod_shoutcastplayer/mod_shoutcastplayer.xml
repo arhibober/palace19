@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="1.7" client="site" method="install">
+<name>ShoutCast Radio Player</name>
+<author>Dimedia Production</author>
+<creationDate>02.05.2012</creationDate>
+<copyright>Copyright (C) 2012</copyright>
+<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+<authorEmail>info@dimedia.tk</authorEmail>
+<authorUrl>http://www.dimedia.tk</authorUrl>
+<version>2.2</version>
+<description>Shoutcast Flash Radio Player</description>
+<languages>
+</languages>
+<files>
+	<filename module="mod_shoutcastplayer">mod_shoutcastplayer.php</filename>
+	
+	<filename>ffmp3-config.swf</filename>
+	
+	<filename>ffmp3-compact.xml</filename>
+	<filename>ffmp3-compact/bg.png</filename>
+	<filename>ffmp3-compact/play.jpg</filename>
+	<filename>ffmp3-compact/playclick.jpg</filename>
+	<filename>ffmp3-compact/statusplay.png</filename>
+	<filename>ffmp3-compact/statusstop.png</filename>
+	<filename>ffmp3-compact/stop.jpg</filename>
+	<filename>ffmp3-compact/stopclick.jpg</filename>
+	
+	<filename>ffmp3-darkconsole.xml</filename>
+	<filename>ffmp3-darkconsole/bg.jpg</filename>
+	<filename>ffmp3-darkconsole/play.jpg</filename>
+	<filename>ffmp3-darkconsole/playclick.jpg</filename>
+	<filename>ffmp3-darkconsole/statusplay.png</filename>
+	<filename>ffmp3-darkconsole/statusstop.png</filename>
+	<filename>ffmp3-darkconsole/stop.jpg</filename>
+	<filename>ffmp3-darkconsole/stopclick.jpg</filename>
+	<filename>ffmp3-darkconsole/holder.png</filename>
+	
+	<filename>ffmp3-eastanbul.xml</filename>
+	<filename>ffmp3-eastanbul/bg.jpg</filename>
+	<filename>ffmp3-eastanbul/play.png</filename>
+	<filename>ffmp3-eastanbul/playclick.png</filename>
+	<filename>ffmp3-eastanbul/statusplay.jpg</filename>
+	<filename>ffmp3-eastanbul/statusstop.jpg</filename>
+	<filename>ffmp3-eastanbul/stop.png</filename>
+	<filename>ffmp3-eastanbul/stopclick.png</filename>
+	<filename>ffmp3-eastanbul/holder.jpg</filename>
+	
+	<filename>faredirfare.xml</filename>
+	<filename>ffmp3-faredirfare/skin-bg.png</filename>
+	<filename>ffmp3-faredirfare/play.png</filename>
+	<filename>ffmp3-faredirfare/play-click.png</filename>
+	<filename>ffmp3-faredirfare/status-play.png</filename>
+	<filename>ffmp3-faredirfare/status-stop.png</filename>
+	<filename>ffmp3-faredirfare/stop.png</filename>
+	<filename>ffmp3-faredirfare/stop-click.png</filename>
+	
+	<filename>ffmp3-mcclean.xml</filename>
+	<filename>ffmp3-mcclean/bg.png</filename>
+	<filename>ffmp3-mcclean/play.gif</filename>
+	<filename>ffmp3-mcclean/playclick.jpg</filename>
+	<filename>ffmp3-mcclean/statusplay.png</filename>
+	<filename>ffmp3-mcclean/statusstop.png</filename>
+	<filename>ffmp3-mcclean/stop.jpg</filename>
+	<filename>ffmp3-mcclean/stopclick.jpg</filename>
+	<filename>ffmp3-mcclean/holder.png</filename>
+	
+	<filename>ffmp3-tweety.xml</filename>
+	<filename>ffmp3-tweety/bg.jpg</filename>
+	<filename>ffmp3-tweety/play.jpg</filename>
+	<filename>ffmp3-tweety/playclick.jpg</filename>
+	<filename>ffmp3-tweety/statusplay.jpg</filename>
+	<filename>ffmp3-tweety/statusstop.jpg</filename>
+	<filename>ffmp3-tweety/stop.jpg</filename>
+	<filename>ffmp3-tweety/stopclick.jpg</filename>
+	<filename>ffmp3-tweety/holder.jpg</filename>
+	
+	<filename>ffmp3-dimedia.xml</filename>
+	<filename>ffmp3-dimedia/bg.png</filename>
+	<filename>ffmp3-dimedia/play.png</filename>
+	<filename>ffmp3-dimedia/playclick.png</filename>
+	<filename>ffmp3-dimedia/statusplay.png</filename>
+	<filename>ffmp3-dimedia/statusstop.png</filename>
+	<filename>ffmp3-dimedia/stop.png</filename>
+	<filename>ffmp3-dimedia/stopclick.png</filename>
+	<filename>ffmp3-dimedia/holder.png</filename>
+	
+</files>
+<config>
+<fields name="params">
+<fieldset name="basic"> 
+<field name="name" type="text" default="TestRadio" label="Radio Title" description="Title of the Radio (without space!!!)" />
+<field name="skin" type="list" default="ffmp3-compact" label="Skin" description="Choose the skin of the player">
+	<option value="ffmp3-dimedia">ffmp3-dimedia</option>
+	<option value="ffmp3-compact">ffmp3-compact</option>
+	<option value="ffmp3-darkconsole">ffmp3-darkconsole</option>
+	<option value="ffmp3-eastanbul">ffmp3-eastanbul</option>
+	<option value="ffmp3-mcclean">ffmp3-mcclean</option>
+	<option value="ffmp3-mcclean">ffmp3-tweety</option>
+	<option value="faredirfare">faredirfare</option>
+</field>
+<field name="autostart" type="list" default="yes" label="Auto Start" description="Start Radio automatic?">
+	<option value="true">Yes</option>
+	<option value="false">No</option>
+</field>
+<field name="url" type="textarea" default="" label="ShoutCast URL" description="URL and Port of the ShoutCast Stream" cols="40" rows="1" />	
+</fieldset>
+
+<fieldset name="advanced">
+	<field name="introurl" type="textarea" default="" label="Intro Audio File" description="If you want to play an audio file befor the stream, enter a url (Optional)" cols="40" rows="1" />	
+	
+	<field name="track" type="list" default="Yes" label="Allow tracking?" description="Allows us to improve the module and let us know where are the users from">
+	<option value="true">Yes</option>
+	<option value="false">No</option>
+	</field>
+</fieldset>
+</fields>
+</config>
+</extension>

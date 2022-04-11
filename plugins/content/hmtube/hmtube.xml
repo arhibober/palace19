@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.6.0" client="site" method="upgrade" group="content">
+<name>HM Tube</name>
+<creationDate>July 2011</creationDate>
+<author>Lander Compton</author>
+<authorEmail>lander083077@gmail.com</authorEmail>
+<authorUrl>www.hypermodern.org</authorUrl>
+<copyright>Copyright</copyright>
+<license>GNU/GPL</license>
+<version>0.9.6</version>
+<description>The HM Tube Player is a plugin interface between Joomla and the JW player for the purplse of playing You Tube videos with JW player functions</description>
+<files>
+      <filename plugin="hmtube">hmtube.php</filename>
+	   <filename plugin="hmtube">index.html</filename>
+   <filename plugin="hmtube">skin/beelden.zip</filename>
+   <filename plugin="hmtube">skin/bekle.zip</filename>
+   <filename plugin="hmtube">skin/darksunset.zip</filename>
+   <filename plugin="hmtube">skin/facebook.zip</filename>
+   <filename plugin="hmtube">skin/fs40.zip</filename>
+   <filename plugin="hmtube">skin/glow.zip</filename>
+   <filename plugin="hmtube">skin/kleur.zip</filename>
+   <filename plugin="hmtube">skin/lulu.zip</filename>
+   <filename plugin="hmtube">skin/minima.zip</filename>
+   <filename plugin="hmtube">skin/modieus.zip</filename>
+   <filename plugin="hmtube">skin/nacht.zip</filename>
+   <filename plugin="hmtube">skin/nemesis.zip</filename>
+   <filename plugin="hmtube">skin/slim.zip</filename>
+   <filename plugin="hmtube">skin/snel.zip</filename>
+    <filename plugin="hmtube">skin/index.html</filename>
+   <filename plugin="hmtube">js/jwplayer.js</filename>
+   <filename plugin="hmtube">js/player.swf</filename>
+   <filename plugin="hmtube">js/swfobject.js</filename>
+   <filename plugin="hmtube">js/index.html</filename>
+</files>
+<files>
+   <folder>js</folder>
+   <folder>css</folder>
+   <folder>skin</folder>
+</files>
+<config>
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="hmwidth" type="text" default="470" label="Player width" description="Width of the player in pixles. Defaults to 470."></field>
+			<field name="hmheight" type="text" default="320" label="Player height" description="Height of the player in pixles. Defaults to 320."></field>
+			<field name="hmcontrolbar" type="list" default="bottom" label="Control Location" description="Where should the control bar be located?">
+				<option value="bottom"> Bottom </option>
+				<option value="top"> Top </option>
+				<option value="over"> Over </option>
+				<option value="none"> None </option>
+			</field>
+			<field name="hmHD" type="list" default="true" label="Play in HD?" description="Play in HD if available.">
+				<option value="true"> Yes </option>
+				<option value="false"> No </option>
+			</field>
+			<field name="hmcontrolbarhide" type="list" default="true" label="Controlbar Autohide" description="Hide the controlbar when idle? Only works when Control Location is set to 'Over'">
+				<option value="true"> Yes </option>
+				<option value="false"> No </option>
+			</field>
+			<field name="hmautostart" type="list" default="false" label="Auto start media?" description="If u want the video to start when page loads then select yes">
+				<option value="true"> Yes </option>
+				<option value="false"> No </option>
+			</field>
+			<field name="hmastretching" type="list" default="uniform" label="Stretching" description="How to stretch the video, if at all. Defualts to Uniform">
+				<option value="uniform"> Uniform </option>
+				<option value="exactfit"> Exact Fit </option>
+				<option value="fill"> Fill </option>
+				<option value="none"> None </option>	
+			</field>
+			<field name="hmskin" type="list" default="slim" label="hmtube Skin" description="Skins apply different visual styles to the player. Only JW player 2.0 Skins are supported.">
+				<option value="slim"> Slim </option>
+				<option value="minima"> Minima </option>
+				<option value="bekle"> Bekle </option>
+				<option value="beelden"> Beelden </option>
+				<option value="darksunset"> Dark Sunset </option>
+				<option value="facebook"> Facebook </option>
+				<option value="fs40"> fs40 </option>
+				<option value="glow"> Glow </option>
+				<option value="kleur"> Kleur </option>
+				<option value="lulu"> LuLu </option>
+				<option value="snel"> Snelt </option>
+				<option value="nemesis"> Nemesis </option>
+				<option value="nacht"> Nacht </option>
+				<option value="modieus"> Modieus </option>
+			</field>
+		</fieldset>
+	</fields>
+</config>
+</extension>

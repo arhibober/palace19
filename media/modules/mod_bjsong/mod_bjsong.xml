@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+		<name>BJ MP3 Player</name>
+		<author>BestJoom Team</author>
+		<creationDate>December 2011</creationDate>
+		<copyright>Released under GNU/GPL License</copyright>
+		<license>http://www.gnu.org/licenses/gpl-3.0-standalone.html</license>
+		<authorEmail>info@bestjoom.com</authorEmail>
+		<authorUrl>http://www.bestjoom.com/</authorUrl>
+		<version>1.0.1</version>
+		<description><![CDATA[<strong>Thank you for choosing BestJoom.</strong></br><em>For support or suggestions please use the form on the support page ONLY!</em>
+		<ul>
+			<li><a href="http://www.bestjoom.com/" target="_blank">BestJoom Site</a></li>
+			<li><a href="http://www.bestjoom.com/extensions.html" target="_blank">New Extensions</a></li>
+			<li><a href="http://www.bestjoom.com/documentation.html" target="_blank">Documentation</a></li>
+			<li><a href="http://shop.bestjoom.com/" target="_blank">Shop</a></li>
+			<li><a href="http://www.bestjoom.com/support.html" target="_blank">Support</a></li>
+		</ul>
+		]]></description>
+	<files>
+		<filename module="mod_bjsong">mod_bjsong.php</filename>
+		<filename>bjsong.swf</filename>
+		<filename>index.html</filename>
+		<filename>swfobject.js</filename>
+		<folder>images</folder>
+		<folder>songs</folder>
+	</files>
+		
+		<config>
+		<fields name="params">
+		<fieldset name="basic" addfieldpath="/modules/mod_bjsong/songs/">
+	    <field type="spacer" name="spacer0" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #000000; text-align: center;&quot;&gt;&lt;strong&gt;BJ MP3 Player (version:1.0.1)&lt;/strong&gt;&lt;/p&gt;" />
+	    	<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling" />
+	    	<field name="vscript" type="radio" default="mod1" label="SWFObject script" description="Mode 1 will use a local copy. Mode 2 will use the file hosted by Google. Mode 3 will disable insertion but it will use the code. Mode 4 will switch to a safe embeding code.">
+  			<option value="mod1">Mode 1 (local)</option>
+  			<option value="mod2">Mode 2 (Google)</option>
+  			<option value="mod3">Mode 3 (disable)</option>
+  			<option value="mod4">Safe</option>
+			</field>
+			<field name="debugMode" type="list" default="0" label="Debug Mode" >
+				<option value="1">Yes</option>
+  				<option value="0">No (Recommended)</option>
+			</field>
+		
+		<field type="spacer" name="spacer1" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #1e40d6; text-align: center;&quot;&gt;&lt;strong&gt;Global settings&lt;/strong&gt;&lt;/p&gt;" />
+			<field name="bjsongBannerWidth" type="text" default="285" label="Global Width" description="Set up the global stage width, the actual width of the flash animation" />
+			<field name="bjsongBannerHeight" type="text" default="109" label="Global Height" description="Set up the global stage height, the actual width of the flash animation" />
+			
+			<field name="bjsongalbumArtWidth" type="text" default="96" label="Image Width" description="Width of the album art holder, in pixels" />
+			<field name="bjsongalbumArtHeight" type="text" default="75" label="Image Height" description="Height of the album art holder, in pixels" />
+			<field name="bjsongalbumArtXPos" type="text" default="7" label="Image X" description="Spacing between the album art holder and left component edge" />
+			<field name="bjsongalbumArtYPos" type="text" default="7" label="Image Y" description="Spacing between the album art holder and top component edge" />
+			
+			<field name="bjsongautoLoad" type="list" default="1" label="Auto Load" description="If set to YES, the loading of the mp3 audio file will start automatically. If NO, loading will start after user presses the play button. This is useful when you want to use more than one player and you do not want all of them to automatically start loading the mp3 audio files, until the user presses the play button, therefore saving bandwidth" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongautoPlay" type="list" default="1" label="AutoPlay" description="If set to YES, the mp3 audio file will start playing automatically, when loaded. If NO, playback will start after the user presses the play button. Note that if autoLoad is set to NO, and you press the next or previous buttons, the next or previous mp3 audio file will not play automatically. Instead, user have to press the play button to start loading and playing the mp3 file" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongcontinuousPlay" type="list" default="1" label="Continuous Play" description="If set to YES, the playlist will play continuously even if Auto Load is NO and/or Auto Play is NO, but initially the playback will not auto start" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongonCompleteJumpToNext" type="list" default="1" label="Auto Next Song" description="If set to YES, if the playlist has more than one song, when the current songs finishes playing, playback will jump to the next song in playlist" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongrepeat" type="list" default="1" label="Repeat" description="If YES, when the playback reaches the end of the last song, it will start again with the first song of the playlist" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsonginitialVolume" type="list" default="1" label="Start Volume" description="Set the start volume" >
+				<option value="0">Mute</option>
+  				<option value="0.25">25</option>
+				<option value="0.50">50</option>
+				<option value="0.75">75</option>
+				<option value="1">Maxim</option>
+			</field>
+			<field name="bjsongbufferTime" type="text" default="1" label="Buffer Time" description="Set buffer time for playback" />
+			<field name="bjsongtextSlideTime" type="text" default="5" label="Text Slide Time" description="Sliding time for artist text and song text, in seconds" />
+			<field name="bjsongtextPauseTime" type="text" default="2" label="Text Pause Time" description="Pause between artist text and song text slide, in seconds" />
+		
+		<field type="spacer" name="spacer2" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 1 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		  <field name="bjsong1" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl1" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname1" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist1" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage1" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer3" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 2 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		 <field name="bjsong2" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl2" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname2" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist2" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage2" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer4" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 3 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong3" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl3" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname3" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist3" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage3" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer5" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 4 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    	<field name="bjsong4" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl4" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname4" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist4" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage4" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer6" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 5 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    <field name="bjsong5" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl5" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname5" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist5" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage5" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer7" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 6 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong6" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl6" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname6" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist6" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage6" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer8" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 7 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    <field name="bjsong7" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl7" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname7" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist7" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage7" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer9" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 8 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    <field name="bjsong8" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl8" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname8" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist8" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage8" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer10" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 9 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    <field name="bjsong9" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl9" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname9" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist9" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage9" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer11" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 10 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong10" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl10" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname10" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist10" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage10" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer12" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 11 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong11" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl11" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname11" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist11" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage11" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer13" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 12 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		    <field name="bjsong12" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl12" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname12" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist12" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage12" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer14" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 13 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong13" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl13" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname13" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist13" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage13" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+		 
+		<field type="spacer" name="spacer15" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 14 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong14" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl14" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname14" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist14" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage14" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer16" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 15 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong15" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl15" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname15" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist15" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage15" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+			
+		<field type="spacer" name="spacer17" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 16 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong16" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl16" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname16" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist16" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage16" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer18" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 17 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong17" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl17" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname17" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist17" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage17" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer19" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 18 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong18" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl18" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname18" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist18" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage18" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer20" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 19 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field name="bjsong19" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl19" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname19" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist19" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage19" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			
+		<field type="spacer" name="spacer21" label="__________________________________________________________________________________________________________________________________________________________________________&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 20 Settings&lt;/strong&gt;&lt;/p&gt;" />
+		   <field type="spacer" default="&lt;p style=&quot;color: #ffffff; background-color: #169f07; text-align: center;&quot;&gt;&lt;strong&gt;Song 20 Settings&lt;/strong&gt;&lt;/p&gt;" />
+			<field name="bjsong20" type="list" default="1" label="Enable Song" description="Choose if you want to enable or disable a specific song" >
+				<option value="1">Yes</option>
+  				<option value="2">No</option>
+			</field>
+			<field name="bjsongurl20" type="text" default="" label="Song Path" description="The song path is used to specify the location of the song that should be loaded in the player" size="40" />
+			<field name="bjsongsongname20" type="text" default="" label="Song Name" description="Insert a song title" size="40" />
+			<field name="bjsongartist20" type="text" default="" label="Artist Name" description="Insert a artist title" size="40" />
+			<field name="bjsongimage20" type="text" default="" label="Image Path" description="Path to the image" size="40" />
+			</fieldset>
+			<fieldset name="advanced">
+		<field name="cache" type="list" default="0" label="Caching" description="Module Caching">
+			<option value="0">No caching</option>
+			<option value="1">Use global</option>
+		</field>
+		<field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+		<field name="admin_modified" type="hidden" default="1" />
+		</fieldset>
+        </fields>
+    </config>
+</extension>

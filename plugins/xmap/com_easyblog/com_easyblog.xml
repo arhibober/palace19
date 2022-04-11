@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="xmap" version="1.6">
+    <name>Xmap - EasyBlog Plugin</name>
+       <author>Maidanichenko Vladimir</author>
+    <creationDate>12/02/2012</creationDate>
+    <copyright>GNU GPL</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license> 
+   <authorEmail>support@joomlamaster.org.ua</authorEmail>
+    <authorUrl>joomlamaster.org.ua</authorUrl>
+    <version>2.2.1</version>
+        <description>Xmap Plugin for EasyBlog Joomla 2.5 and letter component</description>	
+    <files>
+        <filename plugin="com_easyblog">com_easyblog.php</filename>
+        <filename>index.html</filename>
+    </files>	
+    <languages folder="language">
+        <!--
+        these files will be installed in the administrator/language folder.
+        -->
+        <language tag="en-GB">en-GB.plg_xmap_com_easyblog.ini</language>
+        <language tag="es-ES">es-ES.plg_xmap_com_easyblog.ini</language>
+        <language tag="ru-RU">ru-RU.plg_xmap_com_easyblog.ini</language>
+        <language tag="uk-UA">uk-UA.plg_xmap_com_easyblog.ini</language>
+    </languages>	
+    <params>
+	
+        <param name="include_latest_post" type="list" default="1" label="XMAP_SETTING_INCLUDE_LATEST_POST_LIST" description="XMAP_SETTING_INCLUDE_LATEST_POST_LIST_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+        <param name="include_cetegories" type="list" default="1" label="XMAP_SETTING_INCLUDE_CATEGORY_LIST" description="XMAP_SETTING_INCLUDE_CATEGORY_LIST_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+        <param name="include_tag_clouds" type="list" default="1" label="XMAP_SETTING_INCLUDE_TAG_CLOUDS" description="XMAP_SETTING_INCLUDE_TAG_CLOUDS_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+        <param name="include_bloggers" type="list" default="1" label="XMAP_SETTING_INCLUDE_BLOGGERS_LIST" description="XMAP_SETTING_INCLUDE_BLOGGERS_LIST_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>		
+        <param name="include_teamblog" type="list" default="1" label="XMAP_SETTING_INCLUDE_TEAMBLOG_LIST" description="XMAP_SETTING_INCLUDE_TEAMBLOG_LIST_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+        <param name="include_archives" type="list" default="0" label="XMAP_SETTING_INCLUDE_ARCHIVES" description="XMAP_SETTING_INCLUDE_ARCHIVES_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+
+        <param name="number_of_bloggers" type="text" default="10" label="XMAP_SETTING_NUMBER_OF_BLOGGERS" description="XMAP_SETTING_NUMBER_OF_BLOGGERS_DESC" />
+        <param name="include_blogger_posts" type="list" default="1" label="XMAP_SETTING_INCLUDE_BLOGGER_POST" description="XMAP_SETTING_INCLUDE_BLOGGER_POST_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+		
+        <param name="number_of_categories" type="text" default="10" label="XMAP_SETTING_NUMBER_OF_CATEGORIES" description="XMAP_SETTING_NUMBER_OF_CATEGORIES_DESC" />
+        <param name="include_category_posts" type="list" default="1" label="XMAP_SETTING_INCLUDE_CATEGORY_POSTS" description="XMAP_SETTING_INCLUDE_CATEGORY_POSTS_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+		
+        <param name="number_of_tags" type="text" default="10" label="XMAP_SETTING_NUMBER_OF_TAGS" description="XMAP_SETTING_NUMBER_OF_TAGS_DESC" />
+        <param name="include_tag_posts" type="list" default="0" label="XMAP_SETTING_INCLUDE_TAG_POSTS" description="XMAP_SETTING_INCLUDE_TAG_POSTS_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>
+		
+        <param name="number_of_teamblog" type="text" default="10" label="XMAP_SETTING_NUMBER_OF_TEAMBLOG" description="XMAP_SETTING_NUMBER_OF_TEAMBLOG_DESC" />
+        <param name="include_teamblog_posts" type="list" default="1" label="XMAP_SETTING_INCLUDE_TEAMBLOG_POSTS" description="XMAP_SETTING_INCLUDE_TEAMBLOG_POSTS_DESC">
+            <option value="0">XMAP_OPTION_NEVER</option>
+            <option value="1">XMAP_OPTION_ALWAYS</option>
+            <option value="2">XMAP_OPTION_XML_ONLY</option>
+            <option value="3">XMAP_OPTION_HTML_ONLY</option>
+        </param>		
+		
+		
+		<param name="number_of_latest_posts" type="text" default="20" label="XMAP_SETTING_NUMBER_OF_LATEST_POSTS" description="XMAP_SETTING_NUMBER_OF_LATEST_POSTS_DESC" />
+		<param name="monthyear_of_archive" type="text" default="" label="XMAP_SETTING_MONTH_AND_YEAR_OF_ARCHIVE_POSTS" description="XMAP_SETTING_MONTH_AND_YEAR_OF_ARCHIVE_POSTS_DESC" />
+        <param name="number_of_posts" type="text" default="5" label="XMAP_SETTING_NUMBER_OF_POSTS_PER_ITEM" description="XMAP_SETTING_NUMBER_OF_POSTS_PER_ITEM_DESC" />
+		
+        <param name="@spacer" type="spacer" default="" label="XMAP_SETTING_XML_SITEMAP_OPTIONS" description="XMAP_SETTING_XML_SITEMAP_OPTIONS_DESC" />
+		
+        <param name="latestpost_priority" type="list" default="-1" label="XMAP_SETTING_LATEST_POST_PRIORITY_LINKS" description="XMAP_SETTING_LATEST_POST_PRIORITY_LINKS_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="latestpost_changefreq" type="list" default="-1" label="XMAP_SETTING_LATEST_POST_CHANGE_FREQUENCY" description="XMAP_SETTING_LATEST_POST_CHANGE_FREQUENCY_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>
+		
+        <param name="blogger_priority" type="list" default="-1" label="XMAP_SETTING_LATEST_POS_BLOGGERS_PRIORITY_LINKS" description="XMAP_SETTING_LATEST_POS_BLOGGERS_PRIORITY_LINKS_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="blogger_changefreq" type="list" default="-1" label="XMAP_SETTING_CHANGE_FREQUENCY_FOR_BLOGGERS_LINKS" description="XMAP_SETTING_CHANGE_FREQUENCY_FOR_BLOGGERS_LINKS_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>		
+
+        <param name="entry_priority" type="list" default="-1" label="XMAP_SETTING_THE_PRIORITY_FOR_THE_BLOG_ENTRIES" description="XMAP_SETTING_THE_PRIORITY_FOR_THE_BLOG_ENTRIES_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="entry_changefreq" type="list" default="-1" label="XMAP_SETTING_THE_FREQUENCY_FOR_THE_BLOG_ENTRIES" description="XMAP_SETTING_THE_FREQUENCY_FOR_THE_BLOG_ENTRIES_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>
+
+        <param name="category_priority" type="list" default="-1" label="XMAP_SETTING_THE_PRIORITY_FOR_THE_CATEGORIES_LIST_PAGE" description="XMAP_SETTING_THE_PRIORITY_FOR_THE_CATEGORIES_LIST_PAGE_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="category_changefreq" type="list" default="-1" label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_CATEGORY_LIST_PAGE" description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_CATEGORY_LIST_PAGE_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>
+
+        <param name="archive_priority" type="list" default="-1" label="XMAP_SETTING_THE_PRIORITY_FOR_THE_ARCHIVES" description="XMAP_SETTING_THE_PRIORITY_FOR_THE_ARCHIVES_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="archive_changefreq" type="list" default="-1" label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_ARCHIVES" description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_ARCHIVES_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>
+		
+        <param name="tag_priority" type="list" default="-1" label="XMAP_SETTING_THE_PRIORITY_FOR_TAGS" description="XMAP_SETTING_THE_PRIORITY_FOR_TAGS_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="tag_changefreq" type="list" default="-1" label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TAGS" description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TAGS_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>
+		
+        <param name="teamblog_priority" type="list" default="-1" label="XMAP_SETTING_THE_PRIORITY_FOR_TEAMBLOG" description="XMAP_SETTING_THE_PRIORITY_FOR_TEAMBLOG_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="0.0">0.0</option>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1">1</option>
+        </param>
+        <param name="teamblog_changefreq" type="list" default="-1" label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TEAMBLOG" description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TEAMBLOG_DESC">
+            <option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+            <option value="always">XMAP_OPTION_ALWAYS</option>
+            <option value="hourly">XMAP_OPTION_HOURLY</option>
+            <option value="daily">XMAP_OPTION_DAILY</option>
+            <option value="weekly">XMAP_OPTION_WEEKLY</option>
+            <option value="monthly">XMAP_OPTION_MONTHLY</option>
+            <option value="yearly">XMAP_OPTION_YEARLY</option>
+            <option value="never">XMAP_OPTION_NEVER</option>
+        </param>		
+    </params>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+					name="include_latest_post" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_LATEST_POST_ENTRY_LIST"
+					description="XMAP_BASIC_INCLUDE_LATEST_POST_ENTRY_LIST_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>
+				
+				<field 
+					name="include_cetegories" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_LATEST_POST_CATEGORY_LIST"
+					description="XMAP_BASIC_INCLUDE_LATEST_POST_CATEGORY_LIST_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>				
+				
+				<field 
+					name="include_tag_clouds" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_TAG_CLOUDS"
+					description="XMAP_BASIC_INCLUDE_TAG_CLOUDS_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>				
+			
+				<field 
+					name="include_bloggers" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_THE_BLOGERS_LIST"
+					description="XMAP_BASIC_INCLUDE_THE_BLOGERS_LIST_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>			
+			
+				<field 
+					name="include_teamblog" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_THE_TEAMBLOG_LIST"
+					description="XMAP_BASIC_INCLUDE_THE_TEAMBLOG_LIST_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>
+				</field>			
+			
+				<field 
+					name="include_archives" 
+					type="list"
+					default="0"
+					label="XMAP_BASIC_INCLUDE_ARCHIVES"
+					description="XMAP_BASIC_INCLUDE_ARCHIVES_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>
+				</field>			
+				
+				<field 
+					name="number_of_bloggers" 
+					type="text"
+					default="10"
+					label="XMAP_BASIC_INCLUDE_NUMBER_OF_BLOGGERS_SHOW"
+					description="XMAP_BASIC_INCLUDE_NUMBER_OF_BLOGGERS_SHOW_DESC">
+				</field>	
+
+				<field 
+					name="include_blogger_posts" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_BLOGGER_POSTS"
+					description="XMAP_BASIC_INCLUDE_BLOGGER_POSTS_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>
+				
+				<field 
+					name="number_of_categories" 
+					type="text"
+					default="10"
+					label="XMAP_BASIC_INCLUDE_NUMBER_OF_CATEGORIES_TO_SHOW"
+					description="XMAP_BASIC_INCLUDE_NUMBER_OF_CATEGORIES_TO_SHOW_DESC">
+				</field>
+
+				<field 
+					name="include_category_posts" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_CATEGORY_POSTS"
+					description="XMAP_BASIC_INCLUDE_CATEGORY_POSTS_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>
+
+				<field 
+					name="number_of_tags" 
+					type="text"
+					default="10"
+					label="XMAP_BASIC_INCLUDE_NUMBER_OF_TAGS_TO_SHOW"
+					description="XMAP_BASIC_INCLUDE_NUMBER_OF_TAGS_TO_SHOW_DESC">
+				</field>
+
+				<field 
+					name="include_tag_posts" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_TAG_POSTS"
+					description="XMAP_BASIC_INCLUDE_TAG_POSTS_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>
+
+				<field 
+					name="number_of_teamblog" 
+					type="text"
+					default="10"
+					label="XMAP_BASIC_INCLUDE_NUMBER_OF_TEAMBLOG_TO_SHOW"
+					description="XMAP_BASIC_INCLUDE_NUMBER_OF_TEAMBLOG_TO_SHOW_DESC">
+				</field>
+
+				<field 
+					name="include_teamblog_posts" 
+					type="list"
+					default="1"
+					label="XMAP_BASIC_INCLUDE_TEAMBLOG_POSTS"
+					description="XMAP_BASIC_INCLUDE_TEAMBLOG_POSTS_DESC">
+					<option value="0">XMAP_OPTION_NEVER</option>
+					<option value="1">XMAP_OPTION_ALWAYS</option>
+					<option value="2">XMAP_OPTION_XML_ONLY</option>
+					<option value="3">XMAP_OPTION_HTML_ONLY</option>					
+				</field>
+				
+				
+				<field 
+					name="number_of_latest_posts" 
+					type="text"
+					default="20"
+					label="XMAP_BASIC_INCLUDE_NUMBER_OF_LATEST_POSTS_TO_SHOW"
+					description="XMAP_BASIC_INCLUDE_NUMBER_OF_LATEST_POSTS_TO_SHOW_DESC">
+				</field>
+
+				<field 
+					name="monthyear_of_archive" 
+					type="text"
+					default=""
+					label="XMAP_BASIC_MONTH_AND_YEAR_OF_ARCHIVE_POSTS"
+					description="XMAP_BASIC_MONTH_AND_YEAR_OF_ARCHIVE_POSTS_DESC">
+				</field>
+
+				<field 
+					name="number_of_posts" 
+					type="text"
+					default="5"
+					label="XMAP_BASIC_NUMBER_OF_POSTS_PER_ITEM_SHOW"
+					description="XMAP_BASIC_NUMBER_OF_POSTS_PER_ITEM_SHOW_DESC">
+				</field>
+</fieldset>
+<fieldset name="xml">
+				<field 
+					name="@spacer" 
+					type="spacer"
+					default=""
+					label="XMAP_SETTING_XML_SITEMAP_OPTIONS"
+					description="XMAP_SETTING_XML_SITEMAP_OPTIONS_DESC" />
+				
+				<field 
+					name="latestpost_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_LATEST_POST_PRIORITY_LINKS"
+					description="XMAP_SETTING_LATEST_POST_PRIORITY_LINKS_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>				
+				
+				<field 
+					name="latestpost_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_LATEST_POST_CHANGE_FREQUENCY"
+					description="XMAP_SETTING_LATEST_POST_CHANGE_FREQUENCY_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+				
+				<field 
+					name="blogger_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_LATEST_POS_BLOGGERS_PRIORITY_LINKS"
+					description="XMAP_SETTING_LATEST_POS_BLOGGERS_PRIORITY_LINKS_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+
+				<field 
+					name="blogger_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_CHANGE_FREQUENCY_FOR_BLOGGERS_LINKS"
+					description="XMAP_SETTING_CHANGE_FREQUENCY_FOR_BLOGGERS_LINKS_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+
+				<field 
+					name="entry_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_PRIORITY_FOR_THE_BLOG_ENTRIES"
+					description="XMAP_SETTING_THE_PRIORITY_FOR_THE_BLOG_ENTRIES_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+
+				<field 
+					name="entry_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_FREQUENCY_FOR_THE_BLOG_ENTRIES"
+					description="XMAP_SETTING_THE_FREQUENCY_FOR_THE_BLOG_ENTRIES_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+
+				<field 
+					name="category_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_PRIORITY_FOR_THE_CATEGORIES_LIST_PAGE"
+					description="XMAP_SETTING_THE_PRIORITY_FOR_THE_CATEGORIES_LIST_PAGE_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+
+				<field 
+					name="category_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_CATEGORY_LIST_PAGE"
+					description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_CATEGORY_LIST_PAGE_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+
+				<field 
+					name="archive_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_PRIORITY_FOR_THE_ARCHIVES"
+					description="XMAP_SETTING_THE_PRIORITY_FOR_THE_ARCHIVES_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+
+				<field 
+					name="archive_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_ARCHIVES"
+					description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_THE_ARCHIVES_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+
+				<field 
+					name="tag_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_PRIORITY_FOR_TAGS"
+					description="XMAP_SETTING_THE_PRIORITY_FOR_TAGS_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+				
+				<field 
+					name="tag_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TAGS"
+					description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TAGS_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>
+
+				<field 
+					name="teamblog_priority" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_PRIORITY_FOR_TEAMBLOG"
+					description="XMAP_SETTING_THE_PRIORITY_FOR_TEAMBLOG_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="0.0">0.0</option>
+					<option value="0.1">0.1</option>
+					<option value="0.2">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.4">0.4</option>
+					<option value="0.5">0.5</option>
+					<option value="0.6">0.6</option>
+					<option value="0.7">0.7</option>
+					<option value="0.8">0.8</option>
+					<option value="0.9">0.9</option>
+					<option value="1">1</option>				
+				</field>
+				<field 
+					name="teamblog_changefreq" 
+					type="list"
+					default="-1"
+					label="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TEAMBLOG"
+					description="XMAP_SETTING_THE_CHANGE_FREQUENCY_FOR_TEAMBLOG_DESC">
+					<option value="-1">XMAP_OPTION_USE_PARENT_MENU</option>
+					<option value="always">XMAP_OPTION_ALWAYS</option>
+					<option value="hourly">XMAP_OPTION_HOURLY</option>
+					<option value="daily">XMAP_OPTION_DAILY</option>
+					<option value="weekly">XMAP_OPTION_WEEKLY</option>
+					<option value="monthly">XMAP_OPTION_MONTHLY</option>
+					<option value="yearly">XMAP_OPTION_YEARLY</option>
+					<option value="never">XMAP_OPTION_NEVER</option>				
+				</field>						
+			</fieldset>
+		</fields>
+	</config>
+</extension>

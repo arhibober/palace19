@@ -1,0 +1,240 @@
+/**
+* @file
+* @brief    metaudio audio and music library
+* @author   Levente Hunyadi
+* @version  0.8.0
+* @remarks  Copyright (C) 2010 Levente Hunyadi
+* @remarks  Licensed under GNU/GPLv3, see http://www.gnu.org/licenses/gpl-3.0.html
+* @see      http://hunyadi.info.hu/projects/metaudio
+*/
+
+.metaudio-tooltip {
+position:absolute !important;
+z-index:9999 !important;
+border:1px solid #9cf !important;
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+padding:3px !important;
+background-color:#58b !important;
+color:#fff !important;
+}
+
+ul.metaudio {
+margin:0px !important;
+padding:0px !important;
+list-style:none inside none !important;
+}
+
+ul.metaudio > li {
+position:relative !important;
+display:block !important;
+border:none !important;
+padding:0.25em 0.5em 0.25em 0.5em !important;
+background:#f9f9f9 none no-repeat scroll 0 0 !important;
+color:#666 !important;
+}
+
+ul.metaudio > li a.metaudio-player {
+position:relative !important;
+outline:none !important;
+color:#000 !important;
+font-weight:normal !important;
+font-size:150% !important;
+text-decoration:none !important;
+}
+
+ul.metaudio > li.sm2_active {
+border-radius:3px !important;
+-moz-border-radius:3px !important;
+-webkit-border-radius:3px !important;
+color:#fff !important;
+}
+
+ul.metaudio > li:hover {
+background-color:#eee !important;
+}
+
+ul.metaudio > li:hover a.metaudio-player {
+color:#333 !important;
+}
+
+ul.metaudio > li.sm2_active {
+background-color:#999 !important;
+}
+
+ul.metaudio > li.sm2_playing {
+background-color:#69c !important;
+}
+
+ul.metaudio > li.sm2_active a.metaudio-player {
+color:#fff !important;
+cursor:default !important;
+}
+
+ul.metaudio > li .metaudio-timing,
+ul.metaudio > li .metaudio-peak,
+ul.metaudio > li .metaudio-spectrogram {
+display:none !important;
+margin:2px !important;
+border:1px solid #ccc !important;
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+padding:1px !important;
+background-color:#888 !important;
+}
+
+ul.metaudio > li.sm2_active .metaudio-timing,
+ul.metaudio > li.sm2_active .metaudio-peak,
+ul.metaudio > li.sm2_active .metaudio-spectrogram {
+display:block !important;
+}
+
+ul.metaudio > li.sm2_playing .metaudio-timing,
+ul.metaudio > li.sm2_playing .metaudio-peak,
+ul.metaudio > li.sm2_playing .metaudio-spectrogram {
+border-color:#9cf !important;
+background-color:#58b !important;
+}
+
+.metaudio-tooltip,
+ul.metaudio > li .metaudio-timing {
+font:80% monaco,"VT-100",terminal,"lucida console",courier,system !important;
+text-align:right !important;
+}
+
+ul.metaudio > li .metaudio-timing {
+float:right !important;
+padding:3px 5px !important;
+}
+
+ul.metaudio > li:hover .metaudio-timing {
+z-index:2 !important;
+}
+
+ul.metaudio > li.sm2_paused .metaudio-timing .metaudio-current {
+text-decoration:blink !important;
+}
+
+ul.metaudio > li .metaudio-peak {
+position:relative !important;
+float:right !important;
+width:20px !important;
+height:20px !important;
+}
+
+ul.metaudio > li .metaudio-peak > div {
+position:absolute !important;
+top:0;
+right:0;
+bottom:0;
+left:0;
+margin:2px;
+}
+
+ul.metaudio > li .metaudio-peak .metaudio-left,
+ul.metaudio > li .metaudio-peak .metaudio-right {
+position:absolute;
+background-color:#9cf;
+width:50%;
+bottom:0;
+height:0;
+}
+
+ul.metaudio > li .metaudio-peak .metaudio-left {
+left:0;
+}
+
+ul.metaudio > li .metaudio-peak .metaudio-right {
+right:0;
+}
+
+ul.metaudio > li .metaudio-spectrogram {
+float:right !important;
+width:256px;  /* should be same as canvas size in .js */
+height:20px;
+}
+
+.metaudio-spectrogram > * > div {  /* explorercanvas compatibility */
+overflow:visible !important;
+}
+
+ul.metaudio > li .metaudio-control {
+display:none !important;
+}
+
+ul.metaudio > li.sm2_active .metaudio-control {
+display:block !important;
+margin:2px !important;
+padding:2px 0 !important;
+float:right !important;
+height:18px;
+width:18px;
+background:transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAA6klEQVQ4y63UsQpFUBzHcWW0Kc9qEKUMBtN9CaOFZ/ASiLCwmCTS7/q7141zTjdEfQyO/3c4OSQA0hM+N0mSF8pCXWgnqd8ZeR9Ssix74eJFMzS7D6njOKLv+0tohmb3IW0YBtxBs4cQ1e/gQvM8gxWGIfI8h2htw4VEm2kYBizLWoNVVQk3/FTIcRzour5yXRdRFKFt2/+hoijAsm37FyIUjuP48A4XqusaLNM01wAFgyBAmqYoy/LwDhdqmgYsz/Pg+/664aJ1woW6rgMrSRKInu9xoatf9YYNqdM04Q72iDx2aJ/5jTzhDXUvqumSKQk4AAAAAElFTkSuQmCC") no-repeat center center;
+}
+
+ul.metaudio > li.sm2_active.sm2_playing .metaudio-control {
+background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAApUlEQVQ4y7WUsQrDIBCGhYzZhDyr79EHFBxcnJxEInL12h5cPYQqVvgC//B9Q4hRAKB28H4odTTOhm5cP6I/zsFDp7X2AZMHHXR5SN/3DSmlKdBBl4eunDOsgO5XCOsriFCtFTjGmBejTYhQ/yJJHG06/ws554BD4mgTIuS9Bw6Jo02IUAgBOCSONiFCMUZYQYRmv2qiD+lSCqzQX5Ftl3bPb2QHTxCDodp4XC6xAAAAAElFTkSuQmCC");
+}
+
+ul.metaudio > li .metaudio-statusbar {
+display:none !important;
+position:relative !important;
+clear:both !important;
+margin-top:0.25em !important;
+margin-bottom:0.25em !important;
+background-color:#666 !important;
+}
+
+ul.metaudio > li.sm2_active .metaudio-statusbar {
+display:block !important;
+}
+
+ul.metaudio > li .metaudio-statusbar {
+position:relative !important;
+height:0.5em !important;
+border:2px solid #fff !important;
+border-radius:2px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+background-color:#cdf !important;
+overflow:hidden !important;
+cursor:pointer !important;
+}
+
+ul.metaudio > li.sm2_playing .metaudio-statusbar {
+background-color:#9cf !important;
+}
+
+ul.metaudio > li .metaudio-statusbar .metaudio-position,
+ul.metaudio > li .metaudio-statusbar .metaudio-loading {
+position:absolute !important;
+left:0px !important;
+top:0px !important;
+height:0.5em !important;
+width:0px;
+}
+
+ul.metaudio > li .metaudio-statusbar .metaudio-position {
+border-right:3px solid #666 !important;
+border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+background-color:#666 !important;
+}
+
+ul.metaudio > li.sm2_playing .metaudio-statusbar .metaudio-position {
+border-color:#369 !important;
+background-color:#369 !important;
+}
+
+ul.metaudio > li .metaudio-statusbar .metaudio-loading {
+background-color:#eee !important;
+}
+
+div.metaudio-itemdetails {
+display:none;
+max-height:100px;
+overflow:auto;
+}

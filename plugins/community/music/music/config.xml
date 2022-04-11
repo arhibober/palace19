@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?> <install version="1.5" type="plugin" group="community"> 	
+<params>
+		<param name="volume" type="list" default="50" label="Volume" description="Songs volume">
+			<option value="0">Mute</option>		
+			<option value="25">25%</option>
+			<option value="50">50%</option>
+			<option value="75">75%</option>
+			<option value="100">100%</option>			
+		</param>	
+		<param name="autoplay" type="list" default="1" label="Autoplay" description="Autoplay songs">
+			<option value="1">Yes</option>		
+			<option value="0">No</option>
+		</param>	
+		</params>
+ </install>

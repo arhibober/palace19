@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="package" method="upgrade">
+	<packagename>metaudio</packagename>
+	<packager>Levente Hunyadi</packager>
+	<name>metaudio</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Feb 05, 2013</creationDate>
+	<copyright>© 2010-2011 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>hunyadi@gmail.com</authorEmail>
+	<authorUrl>http://hunyadi.info.hu/projects/metaudio</authorUrl>
+	<version>0.8.0.3</version>
+	<downloadUrl>http://joomlacode.org/gf/project/metaudio/frs/</downloadUrl>
+	<files>
+		<file id="com_metaudio" type="component">com_metaudio.ar.zip</file>
+		<file id="plg_search_metaudio" type="plugin" group="search">plg_search_metaudio.ar.zip</file>
+	</files>
+</extension>

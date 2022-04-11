@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+	<name>Content - IFrame</name>
+	<author>Алексей Ваганов</author>
+	<creationDate>may 2011</creationDate>
+	<copyright>IDivision.ru</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>info@idivision.ru</authorEmail>
+	<authorUrl>www.idivision.ru</authorUrl>
+	<version>1.5</version>
+	<description>Плагин выводит iframe в материале. Все атрибуты доступны. Пример синтаксиса плагина {iframe src=...| style=....}</description>
+	<files>
+		<filename plugin="iframe">iframe.php</filename>
+	</files>
+	<params>
+		<param name="clean" type="radio" default="0" label="Очищать контент" description="Затирать объявление плагина в контенте">
+			<option value="1">Да</option>
+			<option value="0">Нет</option>
+		</param>
+		<param name="allowedID" type="text" label="ID материалов" description="Перечислите через запятую ID материалов, в которых плагин будет работать"></param>
+
+	</params>
+</install>

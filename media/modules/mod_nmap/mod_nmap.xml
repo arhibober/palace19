@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<install type="module" version="1.5.0" method="upgrade">
+	<name>Pro Magic Audio Player</name>
+	<author>ProJoom</author>
+	<creationDate>December 2009</creationDate>
+	<copyright>Released under GNU/GPL License</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0-standalone.html</license>
+	<authorEmail>info@projoom.com</authorEmail>
+	<authorUrl>http://www.projoom.com/</authorUrl>
+	<version>1.2.7</version>
+	<description>PMAPDESC</description>
+	<files>
+		<filename module="mod_nmap">mod_nmap.php</filename>
+		<filename>audio/nmaplayer.swf</filename>
+		<filename>audio/nmapl.php</filename>
+		<filename>audio/index.html</filename>
+		<filename>audio/1.png</filename>
+		<filename>audio/2.png</filename>
+		<filename>audio/3.png</filename>
+		<filename>audio/4.png</filename>
+		<filename>audio/5.png</filename>
+		<filename>audio/popup.php</filename>
+		<filename>audio/getid/getid3.php</filename>
+		<filename>audio/getid/getid3.lib.php</filename>
+		<filename>audio/getid/module.audio.mp3.php</filename>
+		<filename>audio/getid/module.tag.apetag.php</filename>
+		<filename>audio/getid/module.tag.id3v1.php</filename>
+		<filename>audio/getid/module.tag.id3v2.php</filename>
+		<filename>audio/getid/module.tag.lyrics3.php</filename>
+		<filename>js/swfobject.js</filename>
+		<filename>js/index.html</filename>
+		<filename>elements/index.html</filename>
+		<filename>elements/colorpicker.php</filename>
+		<filename>elements/colorpicker.js</filename>
+		<filename>elements/colorpicker.css</filename>
+		<filename>elements/images/index.html</filename>
+		<filename>elements/images/blank.gif</filename>
+		<filename>elements/images/moor_arrows.gif</filename>
+		<filename>elements/images/moor_boverlay.png</filename>
+		<filename>elements/images/moor_cursor.gif</filename>
+		<filename>elements/images/moor_slider.png</filename>
+		<filename>elements/images/moor_woverlay.png</filename>
+		<filename>elements/images/l.png</filename>
+		<filename>elements/images/c.png</filename>
+		<filename>elements/images/r.png</filename>
+		<filename>elements/images/x.gif</filename>
+		<filename>elements/images/dox.png</filename>
+		<filename>elements/images/kb.png</filename>
+		<filename>elements/pjus.css</filename>
+		<filename>elements/pjus.js</filename>
+		<filename>elements/pjus.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_nmap.ini</language>
+	</languages>
+	<params addpath="/modules/mod_nmap/elements/">
+		<param name="pjus" type="pjus" default="pmap:1.2.7" label="Version" description="Version check" />
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling" />
+		<param name="vscript" type="radio" default="mod1" label="SWFObject script" description="Mode 1 will use a local copy. Mode 2 will use the file hosted by Google. Mode 3 will disable insertion but it will use the code. Mode 4 will switch to a safe embedding code.">
+			<option value="mod1">Mode 1 (local)</option>
+			<option value="mod2">Mode 2 (Google)</option>
+			<option value="mod3">Mode 3 (disable)</option>
+			<option value="mod4">Safe</option>
+		</param>
+		<param name="nofl" type="textarea" default="" label="No Flash Message" description="Set a custom HTML message if the visitor has no Flash Player installed." cols="60" rows="2" />
+		<param name="nmapalign" type="list" default="center" label="Align (Safe only)" description="Align the module. Note : Applies only if you use SWFObject script - Safe">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+		</param>
+		<param name="nmapdir" type="textarea" default="images/mp3" label="Directory or File" description="Set the target directory where to scan for audio files. If you have your audio files in /media/mp3, set the directory like this media/mp3. You can also use a single file like images/mp3/track.mp3" cols="40" rows="1" />
+		<param name="nmapwidth" type="text" default="250" label="Width" description="Set the width according to your module" />
+		<param name="nmapheight" type="text" default="135" label="Height" description="Set the height according to your module" />
+		<param name="nmapplbwidth" type="text" default="5" label="Playlist Scroll Width" description="Set the width of the playlist scroll bar" />
+		<param name="nmapvolhgt" type="text" default="40" label="Volume Height" description="Set the height of the volume bar." />
+		<param name="nmaptyp" type="list" default="2" label="Type" description="1 = full player, 2 = without playlist, 3 = play/pause, progress bar and volume button, 4 = play/pause and progress bar, 5 = play/pause and song title">
+			<option value="1">Full</option>
+			<option value="2">Standard</option>
+			<option value="3">Simple</option>
+			<option value="4">Minimal</option>
+			<option value="5">Mini</option>
+		</param>
+		<param name="nmapstyle" type="list" default="a" label="Theme" description="7 themes available.Choose the one that fits your template.">
+			<option value="a">Default</option>
+			<option value="b">Blue</option>
+			<option value="c">Red</option>
+			<option value="d">Boxy</option>
+			<option value="e">Navy</option>
+			<option value="f">Pinky</option>
+			<option value="g">Dark</option>
+			<option value="x">CUSTOM</option>
+		</param>
+		<param name="nmapwintype" type="radio" default="normal" label="Operation mode" description="Use it as normal or as a popup player.">
+			<option value="normal">Normal</option>
+			<option value="popup">Popup</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="defbg" type="colorpicker" default="#FFFFFF" label="Popup Window BG" description="Background color of the popup window" />
+		<param name="nmapbut" type="filelist" directory="/modules/mod_nmap/audio/" hide_none="1" filter="\.png$" default="1.png" label="Popup button" description="Use this picture as a button." />
+		<param name="nmaptitle" type="text" default="" label="Window title" description="Set the title for the popup window." />
+		<param name="nmapwcor" type="text" default="20" label="Window space" description="Set the popup window space correction." />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="nmaptrim" type="text" default="0" label="Trim title" description="How many characters to trim from the mp3 titles" />
+		<param name="nmapid3" type="list" default="0" label="Names" description="Use names from Filename or ID3 Tag v1 or v2.">
+			<option value="0">Filename</option>
+			<option value="1">ID3 Tag</option>
+		</param>
+		<param name="nmalsthgt" type="text" default="82" label="Playlist height" description="Set the height of the playlist." />
+		<param name="nmapflyout" type="radio" default="bottom" label="Playlist position" description="Set this option to have the playlist above or below the player">
+			<option value="t">Top</option>
+			<option value="b">Bottom</option>
+		</param>
+		<param name="nmapdisptime" type="radio" default="1" label="Display Time?" description="Switch the time on or off">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nmascrltit" type="text" default="5" label="Title scroll" description="How many seconds to scroll the title if it does not fit in the player?" />
+		<param name="nmacomp" type="radio" default="0" label="Compact mode" description="Set this option to have a bar player">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nmaplay" type="radio" default="0" label="Auto start" description="Auto start the audio file?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nmaprepeat" type="radio" default="1" label="Repeat / Continuous play" description="Auto repeat the playlist and have the player play each song?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nmapshuffle" type="list" default="0" label="Sorting" description="Sort alphabetical, reverse sort or shuffle the playlist">
+			<option value="0">Normal</option>
+			<option value="1">Shuffle</option>
+			<option value="2">Reverse</option>
+			<option value="3">Last Added</option>
+			<option value="4">Older first</option>
+		</param>
+		<param name="nmapvol" type="text" default="85" label="Initial Volume" description="Set the initial volume." />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="nmaprfile" type="text" default="" label="Sticky File" description="Path to the file used as jingle,advert, etc" />
+		<param name="nmapint" type="text" default="" label="Interval" description="Define the interval for the sticky audio file." />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="pbgc1" type="colorpicker" default="#282828" label="Player BG 1" description="" />
+		<param name="pbgc2" type="colorpicker" default="#000000" label="Player BG 2" description="" />
+		<param name="pbga" type="text" default="100" label="Player BG Alpha" description="" />
+		<param name="pbgc3" type="colorpicker" default="#333333" label="Player BG 3" description="" />
+		<param name="pbgsc1" type="colorpicker" default="#FFFFFF" label="Player Shine 1" description="" />
+		<param name="pbgsc2" type="colorpicker" default="#FFFFFF" label="Player Shine 2" description="" />
+		<param name="pbgsa" type="text" default="5" label="Player Shine Alpha" description="" />
+		<param name="pbgsc3" type="colorpicker" default="#333333" label="Player Shine 3" description="" />
+		<param name="@spacer" type="spacer" default="" label="--- Player Skinning ---" description="" />
+		<param name="bbgc1" type="colorpicker" default="#222222" label="Button BG 1" description="" />
+		<param name="bbgc2" type="colorpicker" default="#000000" label="Button BG 2" description="" />
+		<param name="bbga" type="text" default="100" label="Button BG Alpha" description="" />
+		<param name="bbgc3" type="colorpicker" default="#000000" label="Button BG 3" description="" />
+		<param name="bisc1" type="colorpicker" default="#363636" label="Button Stroke 1" description="" />
+		<param name="bisc2" type="colorpicker" default="#000000" label="Button Stroke 2" description="" />
+		<param name="bisa" type="text" default="100" label="Button Stroke Alpha" description="" />
+		<param name="bisc3" type="colorpicker" default="#333333" label="Button Stroke 3" description="" />
+		<param name="bbghc1" type="colorpicker" default="#0D97F2" label="Button Hover 1" description="" />
+		<param name="bbghc2" type="colorpicker" default="#075d99" label="Button Hover 2" description="" />
+		<param name="bbgha" type="text" default="100" label="Button Hover Alpha" description="" />
+		<param name="bbghc3" type="colorpicker" default="#064B79" label="Button Hover 3" description="" />
+		<param name="bic1" type="colorpicker" default="#888888" label="Button Icon 1" description="" />
+		<param name="bia" type="text" default="100" label="Button Icon Alpha" description="" />
+		<param name="bich" type="colorpicker" default="#FFFFFF" label="Button Hover" description="" />
+		<param name="bicha" type="text" default="100" label="Button Hover Alpha" description="" />
+		<param name="@spacer" type="spacer" default="" label="--- Button Skinning ---" description="" />
+		<param name="globaltextc" type="colorpicker" default="#FF0000" label="Text" description="" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="sbgc1" type="colorpicker" default="#000000" label="Slider BG 1" description="" />
+		<param name="sbgc2" type="colorpicker" default="#333333" label="Slider BG 2" description="" />
+		<param name="sbga" type="text" default="100" label="Slider BG Alpha" description="" />
+		<param name="sfc1" type="colorpicker" default="#0D97F2" label="Slider Fill 1" description="" />
+		<param name="svc2" type="colorpicker" default="#075d99" label="Slider Fill 2" description="" />
+		<param name="sfa" type="text" default="100" label="Slider Fill Alpha" description="" />
+		<param name="sspc1" type="colorpicker" default="#333333" label="Slider Progress 1" description="" />
+		<param name="sspc2" type="colorpicker" default="#444444" label="Slider Progress 2" description="" />
+		<param name="sspa" type="text" default="100" label="Slider Progress Alpha" description="" />
+		<param name="sbc1" type="colorpicker" default="#FFFFFF" label="Slider Button" description="" />
+		<param name="@spacer" type="spacer" default="" label="--- Volume Skinning ---" description="" />
+		<param name="vbgc1" type="colorpicker" default="#222222" label="Volume BG 1" description="" />
+		<param name="vbgc2" type="colorpicker" default="#000000" label="Volume BG 2" description="" />
+		<param name="vbga" type="text" default="100" label="Volume BG Alpha" description="" />
+		<param name="vbgc3" type="colorpicker" default="#333333" label="Volume BG 3" description="" />
+		<param name="vsbgc1" type="colorpicker" default="#333333" label="Volume Slider BG 1" description="" />
+		<param name="vsbgc2" type="colorpicker" default="#444444" label="Volume Slider BG 2" description="" />
+		<param name="vsfc1" type="colorpicker" default="#0D97F2" label="Volume Slider Fill 1" description="" />
+		<param name="vsfc2" type="colorpicker" default="#075d99" label="Volume Slider Fill 2" description="" />
+		<param name="@spacer" type="spacer" default="" label="--- List Skinning ---" description="" />
+		<param name="lbgc1" type="colorpicker" default="#222222" label="List BG 1" description="" />
+		<param name="lbgc2" type="colorpicker" default="#000000" label="List BG 2" description="" />
+		<param name="lbga" type="text" default="100" label="List BG Alpha" description="" />
+		<param name="lbgc3" type="colorpicker" default="#333333" label="List BG 3" description="" />
+		<param name="lsbc1" type="colorpicker" default="#666666" label="List Scrollbar 1" description="" />
+		<param name="lsba" type="text" default="100" label="List Scrollbar Alpha" description="" />
+		<param name="lsbgc1" type="colorpicker" default="#000000" label="List Scrollbar BG" description="" />
+		<param name="lsbga" type="text" default="100" label="List Scrollbar Alpha" description="" />
+		<param name="libg" type="colorpicker" default="#333333" label="List Item BG col." description="" />
+		<param name="libga" type="text" default="100" label="List Item Alpha" description="" />
+		<param name="libgac" type="colorpicker" default="#075d99" label="List Item Active BG" description="" />
+		<param name="libgaa" type="text" default="100" label="List Item Active Alpha" description="" />
+		<param name="roundness" type="list" default="0" label="Roundness" description="">
+			<option value="0" />
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</param>
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+		<param name="nmapformat" type="radio" default="0" label="Filename support" description="If you have special characters in your file names, use UTF-8 switch.">
+			<option value="0">Normal</option>
+			<option value="1">UTF-8</option>
+		</param>
+		<param name="nmaprecurse" type="list" default="0" label="Recurse directories" description="Switch this option to yes in you want to recurse directories.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nmapsetperms" type="radio" default="0" label="Autofix permissions" description="On some servers the permissions are not set correctly. This option will try to adjust it. Use it with care!">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>

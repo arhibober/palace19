@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="system" method="upgrade">
+	<name>System - SCM Music Player</name>
+	<author>Omn Hamilton</author>
+	<creationDate>25 May 2012</creationDate>
+	<copyright>Copyright (C) 2012. SMOTip.com All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@smotip.com</authorEmail>
+	<authorUrl>www.smotip.com</authorUrl>
+	<version>1.0</version>
+	<description>SCM Music Player is a free and open source web music player, that brings a seamless music experience to your website. With this Joomla plugin, it will enable your Joomla website to have such nice featuere.</description>
+	<files>
+		<filename plugin="scmmusicplayer">scmmusicplayer.php</filename>
+	</files>
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="skin" type="list" default="skins/tunes/skin.css" label="Player Skin" description="Select Music Player Skins">
+					<option value="skins/tunes/skin.css">Default</option>
+					<option value="skins/aquaPink/skin.css">Aqua Pink</option>
+					<option value="skins/aquaBlue/skin.css">Aqua Blue</option>
+					<option value="skins/aquaPurpleReal/skin.css">Aqua Purple</option>
+					<option value="skins/aquaOrange/skin.css">Aqua Orange</option>
+					<option value="skins/black/skin.css">Black</option>
+			</field>
+			<field name="autostart" type="list" default="true" label="Auto Start" description="Auto Start">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+			</field>
+			<field name="shuffle" type="list" default="true" label="Shuffle" description="Shuffle">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+			</field>
+			<field name="volume" type="text" default="100" label="Volume" description="Volume" />
+			<field name="playlist" type="text" default="http://downloads.bbc.co.uk/rmhttp/downloadtrial/radio4/today/rss.xml" label="RSS Podcast or YouTube or Song URL" description="RSS Podcast or YouTube or Song URL" />
+			<field name="placement" type="list" default="top" label="Placement" description="Placement of Music Player">
+					<option value="top">Top</option>
+					<option value="bottom">Bottom</option>
+			</field>
+			<field name="showplaylist" type="list" default="false" label="Show Playlist" description="Show Playlist?">
+					<option value="false">No</option>
+					<option value="true">Yes</option>					
+			</field>			
+			<field name="authorLink" type="list" default="yes" label="Let other Know About This Plugin?" description="Help to promote and credit this plugin by set this to Yes or set to No if you do not want to.">
+					<option value="yes">yes</option>
+					<option value="no">no</option>
+			</field>
+			</fieldset>
+	</fields>
+</config>
+</extension>

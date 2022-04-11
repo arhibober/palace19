@@ -1,0 +1,8 @@
+﻿<ffmp3-skin folder="ffmp3-dimedia">
+  <play image="play.png" x="18" y="24" clickimage="playclick.png" />
+  <stop image="stop.png" x="49" y="24" clickimage="stopclick.png" />
+  <bg image="bg.png" x="0" y="0" />
+  <text x="110" y="30" width="154" height="17" color="#ffffff" font="Arial" size="11" />
+  <volume mode="holder" x="90" y="4" width="158" height="70" holderImage="holder.png" />
+  <status imagePlay="statusplay.png" imageStop="statusstop.png" x="7" y="7" />
+</ffmp3-skin>
